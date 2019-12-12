@@ -1,11 +1,15 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
+import Auth from './components/Auth/Auth';
 
 const app = () => {
   return (
     <Layout>
-      sdfdsf
+      <Switch>
+        <Route path="/auth" component={Auth} />
+      </Switch>
     </Layout>
   );
 };

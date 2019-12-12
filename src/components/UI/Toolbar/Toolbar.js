@@ -15,7 +15,7 @@ const toolbar = (props) => {
             <nav>
                 <Link to="/" className={classes.NavigationItem}>Dashboard</Link>
                 <Link to="/" className={classes.NavigationItem}>Assigned</Link>
-                <Link to="/" className={classes.NavigationItem}>Authentication</Link>
+                <Link to="/auth" className={classes.NavigationItem}>Authentication</Link>
             </nav>
         </header>
     );

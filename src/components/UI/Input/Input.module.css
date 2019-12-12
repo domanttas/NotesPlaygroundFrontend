@@ -1,0 +1,26 @@
+.Input {
+    border: none;
+    border-bottom: 1px solid black;
+    position: relative;
+    transition: 0.3s ease-out;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+    border-bottom-color: blue;
+    /* transition: 0.3s ease-out; */
+}
+
+.Label {
+    position: absolute;
+    z-index: 10;
+    color: #999;
+    transition: 150ms ease-out;
+    font-size: medium;
+}
+
+.Focused {
+    transform: translateY(-125%);
+    font-size: small;
+}
