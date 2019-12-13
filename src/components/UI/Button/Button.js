@@ -13,7 +13,8 @@ const Button = (props) => {
 
     return (
         <button className={buttonClasses.join(' ')}
-                onClick={props.clicked}>{props.title}</button>
+                onClick={props.clicked}>{props.title}
+                </button>
     );
 };
 

@@ -9,7 +9,7 @@ const Form = (props) => {
     return (
         <Fragment>
             <h1 className={classes.Title}>{props.title}</h1>
-            <form className={classes.Form}>
+            <form className={classes.Form} onSubmit={props.onSubmit}>
                 <div className={classes.InputWrapper}>
                     <Input type="email"
                         placeHolder="Enter your email"
@@ -28,6 +28,12 @@ const Form = (props) => {
                     <Button title={props.title}
                         clicked={props.onSubmit}
                         isSuccess={props.isSuccess} />
+                </div>
+                <div className={classes.ButtonWrapper}>
+                    <Button title={props.switchTitle}
+                        clicked={props.onModeSwitch}
+                        isSuccess={props.isSuccess}
+                        className={classes.ButtonSwitch} />
                 </div>
             </form>
         </Fragment>
