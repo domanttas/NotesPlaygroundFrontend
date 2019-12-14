@@ -27,3 +27,8 @@
 .TitleText {
     padding: 10px;
 }
+
+a:active,
+a:hover {
+    color: brown;
+}

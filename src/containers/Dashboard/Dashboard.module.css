@@ -1,0 +1,12 @@
+.Dashboard {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.Wrapper {
+    display: flex;
+    flex-flow: row;
+}
