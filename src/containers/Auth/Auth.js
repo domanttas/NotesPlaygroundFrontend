@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import Form from './Form/Form';
+import Form from '../../components/AuthForm/AuthForm';
 import * as actionTypes from '../../store/actions/actionTypes';
-import Spinner from '../UI/Spinner/Spinner';
-import Modal from '../UI/Modal/Modal';
+import Spinner from '../../components/UI/Spinner/Spinner';
+import Modal from '../../components/UI/Modal/Modal';
 
 import classes from './Auth.module.css';
 
