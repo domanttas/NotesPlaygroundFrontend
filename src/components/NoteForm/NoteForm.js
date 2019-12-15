@@ -24,6 +24,12 @@ const NoteForm = (props) => {
                         value={props.content}
                         onChange={props.changedContent} />
                 </div>
+                <div className={classes.InputWrapper}>
+                    <Input type="date"
+                        id="date"
+                        value={props.date}
+                        onChange={props.changedDate} />
+                </div>
                 <div className={classes.ButtonWrapper}>
                     <Button title="Create"
                         clicked={props.onSubmit}

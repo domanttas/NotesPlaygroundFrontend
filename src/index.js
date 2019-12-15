@@ -9,7 +9,8 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import authReducer from './store/reducers/auth';
-import { watchAuth } from './store/sagas';
+import noteReducer from './store/reducers/note';
+import { watchAuth, watchNote } from './store/sagas';
 
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -17,7 +18,8 @@ const composeEnhancers =
     : null || compose;
 
 const rootReducer = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    note: noteReducer
 });
 
 const middleware = createSagaMiddleware();
@@ -28,6 +30,7 @@ const store = createStore(
 );
 
 middleware.run(watchAuth);
+middleware.run(watchNote);
 
 ReactDOM.render(<Provider store={store}>
     <BrowserRouter>
