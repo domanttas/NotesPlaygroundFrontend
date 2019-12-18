@@ -2,10 +2,13 @@ import React, { Fragment } from 'react';
 
 import Input from '../UI/Input/Input';
 import Button from '../UI/Button/Button';
+import Datepicker from 'react-datepicker';
 
 import classes from './NoteForm.module.css';
 
 const NoteForm = (props) => {
+    let error = props.hasError ? <p className={classes.Error}>{props.error}</p> : null;
+
     return (
         <Fragment>
             <h1 className={classes.Title}>Your Note</h1>
@@ -25,11 +28,13 @@ const NoteForm = (props) => {
                         onChange={props.changedContent} />
                 </div>
                 <div className={classes.InputWrapper}>
-                    <Input type="date"
+                    <Input type="text"
                         id="date"
+                        placeHolder="Enter due date"
                         value={props.date}
                         onChange={props.changedDate} />
                 </div>
+                {error}
                 <div className={classes.ButtonWrapper}>
                     <Button title="Create"
                         clicked={props.onSubmit}

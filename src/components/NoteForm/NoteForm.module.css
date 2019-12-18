@@ -14,6 +14,10 @@
     padding: 20px;
 }
 
+.Error {
+    color: red;
+}
+
 .ButtonWrapper {
     width: 40%;
     height: 5rem;

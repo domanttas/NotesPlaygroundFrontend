@@ -18,6 +18,8 @@ const Dashboard = (props) => {
     }, []);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [inputError, setInputError] = useState('');
+    const [hasInputError, setHasInputError] = useState(false);
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -45,6 +47,15 @@ const Dashboard = (props) => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
+
+        if (title.trim() === '' || content.trim() === '' || isNaN(Date.parse(date))) {
+            setInputError('Please fill out fields');
+            setHasInputError(true);
+            return;
+        } else {
+            setInputError('');
+            setHasInputError(false);
+        }
 
         props.onAddNote({
             title: title,
@@ -79,18 +90,22 @@ const Dashboard = (props) => {
             changedTitle={event => onTitleChangedHandler(event)}
             changedContent={event => onContentChangedHandler(event)}
             changedDate={event => onDateChangedHandler(event)}
-            isSuccess={true} />
+            isSuccess={true}
+            error={inputError}
+            hasError={hasInputError} />
     );
 
     if (props.loading) {
         modalOutput = <Spinner />;
     }
 
-    let modal = <Modal show={isModalOpen} backdropClicked={onModalClosedHandler}>
+    let modal = <Modal show={isModalOpen}
+        backdropClicked={onModalClosedHandler}>
         {modalOutput}
     </Modal>;
 
     let errorModal = <Modal show={props.error} backdropClicked={props.onClearError}>{props.error ? props.error.message : null}</Modal>
+    let spinner = props.loading ? <Spinner /> : null;
 
     return (
         <Fragment>
@@ -113,6 +128,7 @@ const Dashboard = (props) => {
             </div>
             {modal}
             {errorModal}
+            {spinner}
         </Fragment>
     );
 };

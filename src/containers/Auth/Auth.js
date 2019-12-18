@@ -14,6 +14,9 @@ const Auth = (props) => {
     const [password, setPassword] = useState('');
     const [isSignUp, setIsSignUp] = useState(true);
 
+    const [inputError, setInputError] = useState('');
+    const [hasInputError, setHasInputError] = useState(false);
+
     useEffect(() => {
         setPassword('');
         setEmail('');
@@ -29,6 +32,13 @@ const Auth = (props) => {
 
     const onSubmitHandler = (event) => {
         event.preventDefault();
+
+        if (email.trim() === '' || password.trim() === '') {
+            setHasInputError(true);
+            setInputError('Please fill out all fields');
+            return;
+        }
+
         props.onAuthUser({
             email,
             password
@@ -48,7 +58,9 @@ const Auth = (props) => {
             onSubmit={(event) => onSubmitHandler(event)}
             isSuccess={true}
             switchTitle={isSignUp ? 'Switch to Sign In' : 'Switch to Sign Up'}
-            onModeSwitch={(event) => {onSwitchModeHandler(event)}} />
+            onModeSwitch={(event) => {onSwitchModeHandler(event)}}
+            error={inputError}
+            hasError={hasInputError} />
     );
 
     if (props.loading) {

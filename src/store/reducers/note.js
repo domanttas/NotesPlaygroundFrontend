@@ -40,7 +40,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SAVE_NOTE:
             return {
                 ...state,
-                notes: state.notes.concat(action.note),
+                notes: [action.note].concat(...state.notes),
                 error: null,
                 loading: false
             };

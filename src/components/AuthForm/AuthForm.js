@@ -6,6 +6,8 @@ import Button from '../UI/Button/Button';
 import classes from './AuthForm.module.css';
 
 const Form = (props) => {
+    let error = props.hasError ? <p className={classes.Error}>{props.error}</p> : null;
+
     return (
         <Fragment>
             <h1 className={classes.Title}>{props.title}</h1>
@@ -24,6 +26,7 @@ const Form = (props) => {
                         value={props.password}
                         onChange={props.changedPassword} />
                 </div>
+                {error}
                 <div className={classes.ButtonWrapper}>
                     <Button title={props.title}
                         clicked={props.onSubmit}

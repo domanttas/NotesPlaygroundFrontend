@@ -2,7 +2,7 @@
     text-align: center;
     display: inline-block;
     width: 25%;
-    height: 300px;
+    height: 350px;
     border: 1px solid black;
     border-radius: 2%;
     padding: 20px;
@@ -12,6 +12,10 @@
 
 .InputWrapper {
     padding: 20px;
+}
+
+.Error {
+    color: red;
 }
 
 .ButtonWrapper {
